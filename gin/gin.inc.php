@@ -1,17 +1,9 @@
 <?php
 if (version_compare(phpversion(), '5.1.0', '<') == true) { die ('PHP5.1 Or Greater Only...'); }
-// REQUIRES ADODB5
 session_start();
-// set this to what works best
-error_reporting(E_ERROR);
-//error_reporting(E_ALL);
-
-$DIRSEP = DIRECTORY_SEPARATOR;
-
-// CLI variables - so command line variables exist so code can be reused.
-$cli_database = "";
-
+error_reporting(E_ERROR); // set for production
 header("Cache-control: private");
+
 include_once(WEB_ROOT."/gin/config/config.inc.php");
 include_once(WEB_ROOT."/gin/helpers/utils.inc.php");
 include_once(WEB_ROOT."/gin/helpers/errors.inc.php");
@@ -54,36 +46,4 @@ function __autoload($class) {
 		echo $_SERVER['REQUEST_URI'];
 		echo ("Can't find a file for class: $class  \nPagename: $pageName");
 	}
-}
-// this takes place of all the routing and controller stuff
-function process($valid_routes) { 
-	$route = getParameter("route");
-	// check to see if multiple segments
-	$routes = explode("/",$route);
-	if (count($routes) > 0) {
-		$route = $routes[0];
-	}
-	// now that route has been parsed, validate it
-	$valid = false;
-	foreach ($valid_routes as $vroute) {
-		if ($route == $vroute) {
-			$valid = true;
-			break;
-		}
-	} 	
-	if (! $valid) {
-		redirect("/error/404.php");
-		die();	
-	}
-	// now look for arguments if they exist	
-	$routes = array_slice($routes, 1);
-	if (count($routes) > 0) {
-		print_r($routes);
-	}
-	call_user_func_array($route, $routes);
-}
-
-function get_option($name) {
-	global $options;	
-	return $options[$name];
 }

@@ -64,6 +64,10 @@ abstract class BaseController {
         }
     }
 
+    public function renderJSON($data) {
+        echo json_encode($data);
+    }
+
 }
 
 ?>

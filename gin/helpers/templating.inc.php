@@ -31,6 +31,11 @@ function get_admin_theme() {
 	return get_option(ADMIN_THEME);
 }
 
+function get_option($name) {
+	global $options;
+	return $options[$name];
+}
+
 function get_theme_root(){
 	return WEB_ROOT .  '/themes/' . get_theme();
 }

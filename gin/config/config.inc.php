@@ -8,4 +8,3 @@ $options = array (
     ADMIN_THEME => 'admin',    // change this to a new theme in themes directory
     SITE_NAME => SERVER_NAME   // by default this is the server name, you can change to a directory here.
 );
-?>
