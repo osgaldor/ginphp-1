@@ -93,6 +93,7 @@ class build {
 
     public function controllers() {
         $controller_path = $this->root_dir . "/app/controllers/scaffold";
+        mkdir($controller_path);
         foreach ($this->dbArray as $table_name => $table_data) {
             $fields = array();
 
@@ -110,6 +111,7 @@ class build {
 
     public function views() {
         $view_path = $this->root_dir . "/app/views/scaffold";
+        mkdir ($view_path);
         $tables = array();
         foreach ($this->dbArray as $table_name => $table_data) {
             $fields = array();

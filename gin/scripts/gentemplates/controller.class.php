@@ -26,13 +26,13 @@ class <?=$this->className?>Controller extends BaseController{
 	public function index() {
 		$<?=$this->table?> = new <?=$this->className?>Model();
 		$response['results']= $<?=$this->table?>->get_all();
-    	$this->render("scaffold/<?=$table_lower?>_list",$response);
+        return $this->render("scaffold/<?=$table_lower?>_list",$response);
 	}
 	
 	public function add() {
 	    $<?=$this->table?> = new <?=$this->className?>Model();
 		$response = $<?=$this->table?>->to_array();
-		$this->render("scaffold/<?=$table_lower?>_add",$response);
+        return $this->render("scaffold/<?=$table_lower?>_add",$response);
 	}
 	
 	public function edit($id) {
@@ -40,7 +40,7 @@ class <?=$this->className?>Controller extends BaseController{
 		$<?=$this->table?>->id = $id;
 		$<?=$this->table?>->load();
 		$response['<?=$this->table?>'] = $<?=$this->table?>;
-		$this->render("scaffold/<?=$table_lower?>_edit",$response);
+		return $this->render("scaffold/<?=$table_lower?>_edit",$response);
 	}
   
 // CRUD OPERATIONS   
@@ -53,7 +53,7 @@ class <?=$this->className?>Controller extends BaseController{
     	} else {
     		// error
     		$response = $<?=$this->table?>->to_array();
-    		$this->render("scaffold/<?=$table_lower?>_add");
+            return $this->render("scaffold/<?=$table_lower?>_add");
     	}
     }
     
@@ -66,7 +66,7 @@ class <?=$this->className?>Controller extends BaseController{
     	} else {
     		// error
     		$response = $<?=$this->table?>->to_array();
-    		$this->render("scaffold/<?=$table_lower?>_edit");
+    		return $this->render("scaffold/<?=$table_lower?>_edit");
     	}
     }
     
