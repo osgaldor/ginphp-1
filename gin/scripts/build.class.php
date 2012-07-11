@@ -62,8 +62,7 @@ class build {
         }
     }
 
-    public
-    function child_models($table = "") {
+    public function child_models($table = "") {
         $model_path = $this->root_dir . "/app/models";
         foreach ($this->dbArray as $table_name => $table_data) {
             if ($table != "") {
@@ -94,8 +93,7 @@ class build {
         $this->child_models($table);
     }
 
-    public
-    function controllers() {
+    public function controllers() {
         $controller_path = $this->root_dir . "/app/controllers/scaffold";
         foreach ($this->dbArray as $table_name => $table_data) {
             $fields = array();
@@ -114,8 +112,7 @@ class build {
         }
     }
 
-    public
-    function views() {
+    public function views() {
         $view_path = $this->root_dir . "/app/views/scaffold";
         $tables = array();
         foreach ($this->dbArray as $table_name => $table_data) {
@@ -141,8 +138,7 @@ class build {
         $view_index->build($view_path . "/index.php");
     }
 
-    public
-    function all() {
+    public function all() {
         $this->models();
         $this->controllers();
         $this->views();
@@ -151,5 +147,3 @@ class build {
 
 
 }
-
-?>
