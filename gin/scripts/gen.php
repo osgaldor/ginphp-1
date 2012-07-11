@@ -18,8 +18,6 @@ $db_name = "ginphp";
 $conn=&ADONewConnection("mysql");
 $conn->Connect($db_server,$db_login,$db_password,$db_name);
 $table_array = buildTableArray($db_name);
-print_r($table_array);
-die();
 
 $build = new build($table_array);
 

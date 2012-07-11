@@ -1,11 +1,7 @@
 <?php
 abstract class BaseController {
 
-    var $SYSTEM_ERROR = '/error/systemerr.php';
-
-    var $testing;
-    var $header;
-    var $footer;
+     var $testing;
     var $auth = false;
     var $current_auth = false;
 
@@ -21,16 +17,12 @@ abstract class BaseController {
         $this->current_auth = $current_auth;
     }
 
+    public function isAuthenticated() {
+        return $this->current_auth;
+    }
+
     public function setUnitTesting() {
         $this->testing = true;
-    }
-
-    public function setHeader($header) {
-        $this->header = $header;
-    }
-
-    public function setFooter($footer) {
-        $this->footer = $footer;
     }
 
     public function render($view, $data = null) {
@@ -50,18 +42,16 @@ abstract class BaseController {
             $newview = explode(":", $view);
             redirect($newview[1]);
         }
-        // extracts the associative array put in data to actual variables for the page/view
-        //if ($data != null) extract($data);
+
         $full_file = WEB_ROOT . '/app/views/' . $view . '.php';
         if (file_exists($full_file)) {
             // extracts the associative array put in data to actual variables for the page/view
             if ($data != null) extract($data);
-            //include $this->header;
             include $full_file;
-            //include $this->footer;
         } else {
             include WEB_ROOT . '/error/404.php';
         }
+        return "";
     }
 
     public function renderJSON($data) {
@@ -69,5 +59,3 @@ abstract class BaseController {
     }
 
 }
-
-?>

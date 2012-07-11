@@ -37,8 +37,6 @@ class build {
 
     public function base_models($table = "") {
         $model_path = $this->root_dir . "/app/models";
-        //echo 'MODEL-PATH='.$this->root_dir."\n";
-        //die();
         foreach ($this->dbArray as $table_name => $table_data) {
             if ($table != "") {
                 if ($table == $table_name) {
@@ -107,8 +105,6 @@ class build {
             $cname = strtolower($cname);
             $cname = ucfirst($cname);
             $control->build($controller_path . "/" . $cname . "Controller.class.php");
-
-
         }
     }
 
