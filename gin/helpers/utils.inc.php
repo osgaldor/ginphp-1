@@ -181,5 +181,3 @@ function dollar_format($amount) {
 function is_image($str) {
     return (ends_with($str, '.gif') || ends_with($str, '.jpg') || ends_with($str, '.png'));
 }
-
-?>

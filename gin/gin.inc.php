@@ -7,6 +7,7 @@ header("Cache-control: private");
 include_once(WEB_ROOT."/gin/config/config.inc.php");
 include_once(WEB_ROOT."/gin/helpers/utils.inc.php");
 include_once(WEB_ROOT."/gin/helpers/errors.inc.php");
+include_once(WEB_ROOT."/gin/helpers/logging.inc.php");
 include_once(WEB_ROOT."/gin/helpers/templating.inc.php");
 include_once(WEB_ROOT."/gin/lib/adodb5/adodb.inc.php");
 //include_once(WEB_ROOT."/lib/adodb5/adodb-active-record.inc.php");
@@ -42,8 +43,6 @@ function __autoload($class) {
 	}
 
 	if ($loaded = false) {
-		throw new Exception("foo");
-		echo $_SERVER['REQUEST_URI'];
-		echo ("Can't find a file for class: $class  \nPagename: $pageName");
+		gin_log("Can't find a file for class: $class  \nPagename: $pageName");
 	}
 }

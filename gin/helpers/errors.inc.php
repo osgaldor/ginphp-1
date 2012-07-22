@@ -66,4 +66,3 @@ function get_errors() {
 		$html = "";
 	}
 }
-?>
