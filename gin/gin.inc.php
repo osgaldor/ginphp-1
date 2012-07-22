@@ -31,6 +31,7 @@ function __autoload($class) {
 		WEB_ROOT . "/gin/lib/adodb5/" . $ado_class . ".inc.php",
 		WEB_ROOT . "/app/controllers/" . $class . ".class.php",
 		WEB_ROOT . "/app/models/" . $class . ".class.php",
+        WEB_ROOT . "/app/validators/" . $class . ".class.php",
 		WEB_ROOT . "/app/classes/" . $class . ".class.php"
 	);
 

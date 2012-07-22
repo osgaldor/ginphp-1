@@ -4,15 +4,15 @@ require (WEB_ROOT . "/gin/lib/phpmailer/class.phpmailer.php");
 class Mailer {
 
     private $to;
-    private $from = "From Name";
-    private $from_address = "mailer@yourdomain.com";
-    private $host = "mail.yourdomain.com";
-    private $username = "mailer@yourdomain.com";
-    private $password = "password";
+    private $from;
+    private $from_address;
+    private $host;
+    private $username;
+    private $password;
     private $subject;
     private $body;
     private $mail;
-    private $port = 26;
+    private $port;
 
     function Mailer() {
         $this->mail = new PHPMailer();

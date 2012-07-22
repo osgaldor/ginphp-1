@@ -22,7 +22,7 @@ class build {
     }
 
     public function cimodels() {
-        $model_path = "/home/scott/tmp/app/models/";
+        $model_path = "/home/scott/tmp/app/models/scaffold/";
         foreach ($this->dbArray as $table_name => $table_data) {
             $fields = array();
 
@@ -36,7 +36,10 @@ class build {
     }
 
     public function base_models($table = "") {
-        $model_path = $this->root_dir . "/app/models";
+        $model_path = $this->root_dir . "/app/models/scaffold";
+        mkdir ($model_path);
+        mkdir ($model_path."/base");
+        $model_path = $model_path."/";
         foreach ($this->dbArray as $table_name => $table_data) {
             if ($table != "") {
                 if ($table == $table_name) {
@@ -61,7 +64,7 @@ class build {
     }
 
     public function child_models($table = "") {
-        $model_path = $this->root_dir . "/app/models";
+        $model_path = $this->root_dir . "/app/models/scaffold";
         foreach ($this->dbArray as $table_name => $table_data) {
             if ($table != "") {
                 if ($table == $table_name) {

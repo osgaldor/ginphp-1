@@ -12,6 +12,7 @@ if ($gen_option == "") {
 	echo "generating $gen_option...";
 }
 // database section since run via command line
+$db_server = "localhost";
 $db_login = "root";
 $db_password = "password";
 $db_name = "ginphp";
