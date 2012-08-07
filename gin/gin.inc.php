@@ -3,11 +3,10 @@ if (version_compare(phpversion(), '5.1.0', '<') == true) { die ('PHP5.1 Or Great
 session_start();
 error_reporting(E_ERROR); // set for production
 header("Cache-control: private");
-
+include_once(WEB_ROOT."/gin/helpers/logging.inc.php");
 include_once(WEB_ROOT."/gin/config/config.inc.php");
 include_once(WEB_ROOT."/gin/helpers/utils.inc.php");
 include_once(WEB_ROOT."/gin/helpers/errors.inc.php");
-include_once(WEB_ROOT."/gin/helpers/logging.inc.php");
 include_once(WEB_ROOT."/gin/helpers/templating.inc.php");
 include_once(WEB_ROOT."/gin/lib/adodb5/adodb.inc.php");
 //include_once(WEB_ROOT."/lib/adodb5/adodb-active-record.inc.php");
